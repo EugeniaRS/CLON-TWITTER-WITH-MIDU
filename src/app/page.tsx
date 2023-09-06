@@ -3,6 +3,11 @@
 import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
 import {cookies} from 'next/headers'
 import { AuthButton } from './components/auth-button';
+/* Porque es mejor las cookies que localStorage?
+-Las cookies on un poco mas seguras
+-No se puede leer localStorage desde el servidor.
+-Se busca leer las cookies muchas veces para saber si el user a iniciado sesion.
+- spas en el cliente cuando es localStorage */
 
 export default  async function Home() {
   const supabase= createServerComponentClient({cookies});
